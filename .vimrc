@@ -127,15 +127,9 @@ inoremap <c-u> <esc>viwUea
 
 nnoremap <leader>a ^
 nnoremap <leader>e $
-nnoremap d<leader>e d$
-nnoremap y<leader>e y$
-nnoremap c<leader>e c$
 vnoremap <leader>e $
-
-nnoremap d<leader>a d^
-nnoremap y<leader>a y^
-nnoremap c<leader>a c^
 vnoremap <leader>a ^
 
 " configure tabstop and shiftwidth for scheme file.
 autocmd FileType scheme setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd FileType racket setlocal tabstop=2 shiftwidth=2 expandtab
