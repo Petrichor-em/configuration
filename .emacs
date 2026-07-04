@@ -37,6 +37,7 @@
       imenu-max-items 1000
       imenu-max-item-length 1000
       make-backup-files nil
+      ido-auto-merge-work-directories-length -1
       warning-minimum-level :error
       custom-file (expand-file-name "custom.el" user-emacs-directory))
 
