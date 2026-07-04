@@ -149,7 +149,7 @@
   (evil-define-key evil-vi-states 'global (kbd "C-k") 'ignore)
   (evil-define-key (cons 'emacs evil-vi-states) 'global (kbd "C-z") 'ignore)
   (evil-define-key evil-vi-states 'global (kbd "K")   'ignore)
-  (evil-define-key evil-vi-states 'global (kbd "C-g") 'evil-keyboard-quit)
+  (evil-define-key '(insert replace) 'global (kbd "C-g") 'evil-keyboard-quit)
   (evil-define-key evil-vi-states 'global (kbd "<mouse-2>") 'ignore)
 
   (setq evil-default-cursor        'box
