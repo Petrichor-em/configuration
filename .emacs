@@ -3,6 +3,7 @@
 
 (global-unset-key (kbd "C-x C-c"))
 (global-unset-key (kbd "C-h h"))
+(global-unset-key (kbd "C-z"))
 (define-key global-map (kbd "<mouse-2>") 'ignore)
 
 ;(define-key key-translation-map (kbd "ESC") (kbd "C-g"))
@@ -47,7 +48,7 @@
               select-active-regions nil
               display-line-numbers-type 'relative)
 
-(set-face-attribute 'default nil :height 180 :family "Menlo")
+(set-face-attribute 'default nil :height 180 :family "Fira Code Medium")
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
@@ -127,6 +128,8 @@
   (define-key evil-inner-text-objects-map "w" #'evil-inner-symbol)
   (define-key evil-outer-text-objects-map "w" #'evil-a-symbol)
 
+  (defalias #'evil-lookup #'ignore)
+
   (setq evil-vi-states '(normal
                          insert
                          visual
@@ -146,12 +149,10 @@
   (evil-define-key 'normal    'global (kbd "C-a")  'increment-number-at-point)
   (evil-define-key 'normal    'global (kbd "C-j")  'evil-next-line)
   (evil-define-key 'normal    'global (kbd "C-p")  'ignore)
-
   (evil-define-key evil-vi-states 'global (kbd "C-k") 'ignore)
+  (evil-define-key (cons 'emacs evil-vi-states) 'global (kbd "<mouse-2>") 'ignore)
   (evil-define-key (cons 'emacs evil-vi-states) 'global (kbd "C-z") 'ignore)
-  (evil-define-key evil-vi-states 'global (kbd "K")   'ignore)
   (evil-define-key '(insert replace) 'global (kbd "C-g") 'evil-keyboard-quit)
-  (evil-define-key evil-vi-states 'global (kbd "<mouse-2>") 'ignore)
 
   (setq evil-default-cursor        'box
         evil-normal-state-cursor   'box
