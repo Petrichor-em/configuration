@@ -5,8 +5,16 @@
 (global-unset-key (kbd "C-h h"))
 (global-unset-key (kbd "C-z"))
 (define-key global-map (kbd "<mouse-2>") 'ignore)
+(global-set-key (kbd "C-x r")   'replace-string)
+(global-set-key (kbd "C-x R")   'query-replace)
+(global-set-key (kbd "<f2>")    'goto-line)
+(global-set-key (kbd "<f8>")    'compile)
+(global-set-key (kbd "C-\\")    'split-window-horizontally)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-/")     'my-comment)
+(global-set-key (kbd "C-x f")   'evil-show-file-info)
+(global-set-key (kbd "M-<f4>")  'save-buffers-kill-emacs)
 
-;(define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
@@ -48,7 +56,7 @@
               select-active-regions nil
               display-line-numbers-type 'relative)
 
-(set-face-attribute 'default nil :height 180 :family "Fira Code Medium")
+(set-face-attribute 'default nil :height 180 :family "Fira Code" :weight 'medium)
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
@@ -129,6 +137,7 @@
   (define-key evil-outer-text-objects-map "w" #'evil-a-symbol)
 
   (defalias #'evil-lookup #'ignore)
+  (defalias #'evil-paste-pop #'ignore)
 
   (setq evil-vi-states '(normal
                          insert
@@ -137,20 +146,11 @@
                          operator
                          motion))
 
-  (evil-define-key '(normal emacs)  'global (kbd "<f2>")    'goto-line)
-  (evil-define-key '(normal emacs)  'global (kbd "<f8>")    'compile)
-  (evil-define-key '(normal emacs)  'global (kbd "C-\\")    'split-window-horizontally)
-  (evil-define-key '(normal emacs)  'global (kbd "C-x C-b") 'ibuffer)
-  (evil-define-key '(normal visual) 'global (kbd "C-/")  'my-comment)
-  (evil-define-key 'normal    'global (kbd "g r")  'replace-string)
-  (evil-define-key 'normal    'global (kbd "g R")  'query-replace)
   (evil-define-key 'normal    'global (kbd "'")    'evil-goto-mark)
   (evil-define-key 'normal    'global (kbd "C-n")  'evil-ex-nohighlight)
   (evil-define-key 'normal    'global (kbd "C-a")  'increment-number-at-point)
   (evil-define-key 'normal    'global (kbd "C-j")  'evil-next-line)
-  (evil-define-key 'normal    'global (kbd "C-p")  'ignore)
   (evil-define-key evil-vi-states 'global (kbd "C-k") 'ignore)
-  (evil-define-key (cons 'emacs evil-vi-states) 'global (kbd "<mouse-2>") 'ignore)
   (evil-define-key (cons 'emacs evil-vi-states) 'global (kbd "C-z") 'ignore)
   (evil-define-key '(insert replace) 'global (kbd "C-g") 'evil-keyboard-quit)
 
