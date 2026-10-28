@@ -14,6 +14,7 @@
 (global-set-key (kbd "C-/")     'my-comment)
 (global-set-key (kbd "C-x f")   'evil-show-file-info)
 (global-set-key (kbd "M-<f4>")  'save-buffers-kill-emacs)
+(global-set-key (kbd "C-x f")   'file-info)
 
 
 (tool-bar-mode 0)
@@ -88,6 +89,9 @@
   (interactive "sSession: ")
   (compile (format "mutagen sync terminate %s" session)))
 
+(defun file-info ()
+  (interactive)
+  (message "\"%s\" %d lines" (buffer-file-name) (car (buffer-line-statistics))))
 
 (defun increment-number-at-point ()
   (interactive)
