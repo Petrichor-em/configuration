@@ -11,7 +11,6 @@
 (global-set-key (kbd "<f8>")    'compile)
 (global-set-key (kbd "C-\\")    'split-window-horizontally)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x f")   'evil-show-file-info)
 (global-set-key (kbd "M-<f4>")  'save-buffers-kill-emacs)
 (global-set-key (kbd "C-x f")   'file-info)
 
